@@ -1,0 +1,37 @@
+task_id,opt,model,prompt,compiled,passed,error,latency_s,input_tokens,output_tokens
+0,O0,openai/gpt-oss-120b,zero_shot,True,True,,3.7,629,1611
+1,O0,openai/gpt-oss-120b,zero_shot,True,True,,4.03,1326,1753
+2,O0,openai/gpt-oss-120b,zero_shot,True,True,,5.59,245,547
+3,O0,openai/gpt-oss-120b,zero_shot,True,True,,8.04,413,763
+4,O0,openai/gpt-oss-120b,zero_shot,True,True,,12.01,804,1162
+5,O0,openai/gpt-oss-120b,zero_shot,True,True,,17.71,835,2850
+6,O0,openai/gpt-oss-120b,zero_shot,True,True,,24.07,886,1547
+7,O0,openai/gpt-oss-120b,zero_shot,True,True,,16.23,747,1324
+8,O0,openai/gpt-oss-120b,zero_shot,True,True,,13.04,561,833
+9,O0,openai/gpt-oss-120b,zero_shot,True,False,"Assertion failed: (issame(result, (const int[]){1, 2, 3, 4}, 4)), function main, file prog.c, line 45.
+",12.29,710,1275
+10,O0,openai/gpt-oss-120b,zero_shot,True,True,,25.08,1573,3111
+11,O0,openai/gpt-oss-120b,zero_shot,True,True,,21.98,787,846
+12,O0,openai/gpt-oss-120b,zero_shot,True,True,,2.47,552,1022
+13,O0,openai/gpt-oss-120b,zero_shot,True,True,,24.95,320,636
+14,O0,openai/gpt-oss-120b,zero_shot,True,True,,3.32,1077,1478
+15,O0,openai/gpt-oss-120b,zero_shot,True,True,,17.17,754,3042
+16,O0,openai/gpt-oss-120b,zero_shot,False,False,"gn/T/tmplk6fw1is/prog.c:35:13: error: call to undeclared function '__ctype_b_loc'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   35 |         if (__ctype_b_loc()[ch] & 0x400) {
+      |             ^
+/var/folders/gk/gc4h9ccd3774z7d955_mv7_00000gn/T/tmplk6fw1is/prog.c:35:28: error: subscripted value is not an array, pointer, or vector
+   35 |         if (__ctype_b_loc()[ch] & 0x400) {
+      |             ~~~~~~~~~~~~~~~^~~
+2 errors generated.
+",23.59,779,2465
+17,O0,openai/gpt-oss-120b,zero_shot,False,False,"3774z7d955_mv7_00000gn/T/tmp0lm1y7fe/prog.c:88:12: error: assigning to 'int *' from incompatible type 'void'
+   88 |     result = func0(""o| o| .| .| o o o o"", &count);
+      |            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/var/folders/gk/gc4h9ccd3774z7d955_mv7_00000gn/T/tmp0lm1y7fe/prog.c:92:12: error: assigning to 'int *' from incompatible type 'void'
+   92 |     result = func0(""o| .| o| .| o o| o o|"", &count);
+      |            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5 errors generated.
+",48.61,2194,3720
+18,O0,openai/gpt-oss-120b,zero_shot,True,True,,31.56,581,3328
+19,O0,openai/gpt-oss-120b,zero_shot,True,False,"Assertion failed: (strcmp(func0(""three""), ""three"") == 0), function main, file prog.c, line 81.
+",50.06,2021,5785

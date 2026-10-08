@@ -219,6 +219,4 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Benchmark clone
-benchmark/
 .DS_Store
