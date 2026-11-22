@@ -33,11 +33,8 @@ module load python/3.12 && source .venv/bin/activate
 3. Stop the server: `../bv_llm_host/scripts/stop.sh qwen3-8b`. Check what is running with
    `../bv_llm_host/scripts/status.sh`.
 
-All four prompts at one optimization level take about an hour for qwen3-8b.
-
 Results go to `results/<experiment>/`: `generations.jsonl` (every model reply), `evals.jsonl`
 (compile and test result per reply), `summary.csv` and `comparisons.csv`.
-Re-running only sends the requests that are missing, so an interrupted run picks up where it stopped.
 
 ## Choosing what to run
 
@@ -76,5 +73,3 @@ bv_llm_host server of that name. Any OpenAI-compatible API works too, for exampl
 | `self_review` | a zero-shot answer, then a second turn asking it to check and fix that answer |
 | `few_shot` | three solved examples at the same optimization level first |
 
-The few-shot examples are the C files in `harness/prompts/few_shot/`, which are not from the benchmark.
-After changing them, rebuild their assembly on OSC with `python -m harness build-examples`.
