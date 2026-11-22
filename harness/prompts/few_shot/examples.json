@@ -1,0 +1,70 @@
+{
+  "O0": [
+    {
+      "name": "checksum",
+      "c": "#include <stddef.h>\n#include <stdint.h>\n\nuint32_t func0(const unsigned char *data, size_t len) {\n    uint32_t a = 1, b = 0;\n    for (size_t i = 0; i < len; i++) {\n        a = (a + data[i]) % 65521;\n        b = (b + a) % 65521;\n    }\n    return (b << 16) | a;\n}",
+      "asm": "<func0>:\nendbr64\npush   %rbp\nmov    %rsp,%rbp\nmov    %rdi,-0x18(%rbp)\nmov    %rsi,-0x20(%rbp)\nmovl   $0x1,-0x4(%rbp)\nmovl   $0x0,-0x8(%rbp)\nmovq   $0x0,-0x10(%rbp)\n00\njmp    91 <func0+0x91>\nmov    -0x18(%rbp),%rdx\nmov    -0x10(%rbp),%rax\nadd    %rdx,%rax\nmovzbl (%rax),%eax\nmovzbl %al,%edx\nmov    -0x4(%rbp),%eax\nadd    %edx,%eax\nmov    %eax,%ecx\nmov    $0x80078071,%edx\nimul   %rcx,%rdx\nshr    $0x20,%rdx\nshr    $0xf,%edx\nmov    %edx,-0x4(%rbp)\nmov    -0x4(%rbp),%edx\nimul   $0xfff1,%edx,%edx\nsub    %edx,%eax\nmov    %eax,-0x4(%rbp)\nmov    -0x8(%rbp),%edx\nmov    -0x4(%rbp),%eax\nadd    %edx,%eax\nmov    %eax,%ecx\nmov    $0x80078071,%edx\nimul   %rcx,%rdx\nshr    $0x20,%rdx\nshr    $0xf,%edx\nmov    %edx,-0x8(%rbp)\nmov    -0x8(%rbp),%edx\nimul   $0xfff1,%edx,%edx\nsub    %edx,%eax\nmov    %eax,-0x8(%rbp)\naddq   $0x1,-0x10(%rbp)\nmov    -0x10(%rbp),%rax\ncmp    -0x20(%rbp),%rax\njb     28 <func0+0x28>\nmov    -0x8(%rbp),%eax\nshl    $0x10,%eax\nor     -0x4(%rbp),%eax\npop    %rbp\nretq\n"
+    },
+    {
+      "name": "last_index",
+      "c": "int func0(const char *s, char ch) {\n    int last = -1;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] == ch)\n            last = i;\n    return last;\n}",
+      "asm": "<func0>:\nendbr64\npush   %rbp\nmov    %rsp,%rbp\nmov    %rdi,-0x18(%rbp)\nmov    %esi,%eax\nmov    %al,-0x1c(%rbp)\nmovl   $0xffffffff,-0x4(%rbp)\nmovl   $0x0,-0x8(%rbp)\njmp    40 <func0+0x40>\nmov    -0x8(%rbp),%eax\nmovslq %eax,%rdx\nmov    -0x18(%rbp),%rax\nadd    %rdx,%rax\nmovzbl (%rax),%eax\ncmp    %al,-0x1c(%rbp)\njne    3c <func0+0x3c>\nmov    -0x8(%rbp),%eax\nmov    %eax,-0x4(%rbp)\naddl   $0x1,-0x8(%rbp)\nmov    -0x8(%rbp),%eax\nmovslq %eax,%rdx\nmov    -0x18(%rbp),%rax\nadd    %rdx,%rax\nmovzbl (%rax),%eax\ntest   %al,%al\njne    21 <func0+0x21>\nmov    -0x4(%rbp),%eax\npop    %rbp\nretq\n"
+    },
+    {
+      "name": "transpose",
+      "c": "void func0(const double *src, double *dst, int rows, int cols) {\n    for (int r = 0; r < rows; r++)\n        for (int c = 0; c < cols; c++)\n            dst[c * rows + r] = src[r * cols + c];\n}",
+      "asm": "<func0>:\nendbr64\npush   %rbp\nmov    %rsp,%rbp\nmov    %rdi,-0x18(%rbp)\nmov    %rsi,-0x20(%rbp)\nmov    %edx,-0x24(%rbp)\nmov    %ecx,-0x28(%rbp)\nmovl   $0x0,-0x4(%rbp)\njmp    7e <func0+0x7e>\nmovl   $0x0,-0x8(%rbp)\njmp    72 <func0+0x72>\nmov    -0x4(%rbp),%eax\nimul   -0x28(%rbp),%eax\nmov    %eax,%edx\nmov    -0x8(%rbp),%eax\nadd    %edx,%eax\ncltq\nlea    0x0(,%rax,8),%rdx\n00\nmov    -0x18(%rbp),%rax\nadd    %rax,%rdx\nmov    -0x8(%rbp),%eax\nimul   -0x24(%rbp),%eax\nmov    %eax,%ecx\nmov    -0x4(%rbp),%eax\nadd    %ecx,%eax\ncltq\nlea    0x0(,%rax,8),%rcx\n00\nmov    -0x20(%rbp),%rax\nadd    %rcx,%rax\nmovsd  (%rdx),%xmm0\nmovsd  %xmm0,(%rax)\naddl   $0x1,-0x8(%rbp)\nmov    -0x8(%rbp),%eax\ncmp    -0x28(%rbp),%eax\njl     28 <func0+0x28>\naddl   $0x1,-0x4(%rbp)\nmov    -0x4(%rbp),%eax\ncmp    -0x24(%rbp),%eax\njl     1f <func0+0x1f>\nnop\nnop\npop    %rbp\nretq\n"
+    }
+  ],
+  "O1": [
+    {
+      "name": "checksum",
+      "c": "#include <stddef.h>\n#include <stdint.h>\n\nuint32_t func0(const unsigned char *data, size_t len) {\n    uint32_t a = 1, b = 0;\n    for (size_t i = 0; i < len; i++) {\n        a = (a + data[i]) % 65521;\n        b = (b + a) % 65521;\n    }\n    return (b << 16) | a;\n}",
+      "asm": "<func0>:\nendbr64\ntest   %rsi,%rsi\nje     62 <func0+0x62>\nmov    %rdi,%r8\nadd    %rsi,%rdi\nmov    $0x0,%eax\nmov    $0x1,%edx\nmov    $0x80078071,%esi\nmovzbl (%r8),%ecx\nadd    %edx,%ecx\nmov    %ecx,%edx\nimul   %rsi,%rdx\nshr    $0x2f,%rdx\nimul   $0xfff1,%edx,%r9d\nsub    %r9d,%ecx\nmov    %ecx,%edx\nlea    (%rcx,%rax,1),%ecx\nmov    %ecx,%eax\nimul   %rsi,%rax\nshr    $0x2f,%rax\nimul   $0xfff1,%eax,%r9d\nmov    %ecx,%eax\nsub    %r9d,%eax\nadd    $0x1,%r8\ncmp    %rdi,%r8\njne    1e <func0+0x1e>\nshl    $0x10,%eax\nor     %edx,%eax\nretq\nmov    $0x0,%eax\nmov    $0x1,%edx\njmp    5c <func0+0x5c>\n"
+    },
+    {
+      "name": "last_index",
+      "c": "int func0(const char *s, char ch) {\n    int last = -1;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] == ch)\n            last = i;\n    return last;\n}",
+      "asm": "<func0>:\nendbr64\nmovzbl (%rdi),%edx\ntest   %dl,%dl\nje     2a <func0+0x2a>\nmov    $0x0,%eax\nmov    $0xffffffff,%ecx\ncmp    %dl,%sil\ncmove  %eax,%ecx\nadd    $0x1,%rax\nmovzbl (%rdi,%rax,1),%edx\ntest   %dl,%dl\njne    15 <func0+0x15>\nmov    %ecx,%eax\nretq\nmov    $0xffffffff,%ecx\njmp    27 <func0+0x27>\n"
+    },
+    {
+      "name": "transpose",
+      "c": "void func0(const double *src, double *dst, int rows, int cols) {\n    for (int r = 0; r < rows; r++)\n        for (int c = 0; c < cols; c++)\n            dst[c * rows + r] = src[r * cols + c];\n}",
+      "asm": "<func0>:\nendbr64\ntest   %edx,%edx\njle    73 <func0+0x73>\npush   %r12\npush   %rbp\npush   %rbx\nmov    %rdi,%r9\nmov    %edx,%ebx\nmov    %ecx,%r11d\nmovslq %edx,%rdi\nshl    $0x3,%rdi\nmov    $0x0,%r10d\nmov    $0x0,%r8d\nlea    -0x1(%rcx),%r12d\nlea    0x8(%r9),%rbp\njmp    67 <func0+0x67>\nmovslq %r10d,%rdx\nlea    (%r9,%rdx,8),%rax\nadd    %r12,%rdx\nlea    0x0(%rbp,%rdx,8),%rcx\nmov    %rsi,%rdx\nmovsd  (%rax),%xmm0\nmovsd  %xmm0,(%rdx)\nadd    $0x8,%rax\nadd    %rdi,%rdx\ncmp    %rcx,%rax\njne    43 <func0+0x43>\nadd    $0x1,%r8d\nadd    $0x8,%rsi\nadd    %r11d,%r10d\ncmp    %r8d,%ebx\nje     6e <func0+0x6e>\ntest   %r11d,%r11d\njg     31 <func0+0x31>\njmp    57 <func0+0x57>\npop    %rbx\npop    %rbp\npop    %r12\nretq\nretq\n"
+    }
+  ],
+  "O2": [
+    {
+      "name": "checksum",
+      "c": "#include <stddef.h>\n#include <stdint.h>\n\nuint32_t func0(const unsigned char *data, size_t len) {\n    uint32_t a = 1, b = 0;\n    for (size_t i = 0; i < len; i++) {\n        a = (a + data[i]) % 65521;\n        b = (b + a) % 65521;\n    }\n    return (b << 16) | a;\n}",
+      "asm": "<func0>:\nendbr64\ntest   %rsi,%rsi\nje     70 <func0+0x70>\nadd    %rdi,%rsi\nxor    %eax,%eax\nmov    $0x1,%edx\nmov    $0x80078071,%r8d\nnopl   0x0(%rax)\nmovzbl (%rdi),%ecx\nadd    $0x1,%rdi\nadd    %ecx,%edx\nmov    %rdx,%rcx\nimul   %r8,%rdx\nshr    $0x2f,%rdx\nimul   $0xfff1,%edx,%r9d\nsub    %r9d,%ecx\nadd    %ecx,%eax\nmov    %ecx,%edx\nmov    %eax,%eax\nmov    %rax,%rcx\nimul   %r8,%rax\nshr    $0x2f,%rax\nimul   $0xfff1,%eax,%r9d\nmov    %ecx,%eax\nsub    %r9d,%eax\ncmp    %rdi,%rsi\njne    20 <func0+0x20>\nshl    $0x10,%eax\nor     %edx,%eax\nretq\nnopw   %cs:0x0(%rax,%rax,1)\n00 00 00\nmov    $0x1,%eax\nretq\n"
+    },
+    {
+      "name": "last_index",
+      "c": "int func0(const char *s, char ch) {\n    int last = -1;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] == ch)\n            last = i;\n    return last;\n}",
+      "asm": "<func0>:\nendbr64\nmovzbl (%rdi),%edx\ntest   %dl,%dl\nje     30 <func0+0x30>\nxor    %eax,%eax\nmov    $0xffffffff,%r8d\nnopl   0x0(%rax,%rax,1)\ncmp    %dl,%sil\ncmove  %eax,%r8d\nadd    $0x1,%rax\nmovzbl (%rdi,%rax,1),%edx\ntest   %dl,%dl\njne    18 <func0+0x18>\nmov    %r8d,%eax\nretq\nnop\nmov    $0xffffffff,%r8d\nmov    %r8d,%eax\nretq\n"
+    },
+    {
+      "name": "transpose",
+      "c": "void func0(const double *src, double *dst, int rows, int cols) {\n    for (int r = 0; r < rows; r++)\n        for (int c = 0; c < cols; c++)\n            dst[c * rows + r] = src[r * cols + c];\n}",
+      "asm": "<func0>:\nendbr64\ntest   %edx,%edx\njle    79 <func0+0x79>\nmov    %rdi,%r9\nmovslq %edx,%rdi\npush   %r12\nmov    %ecx,%r11d\npush   %rbp\nshl    $0x3,%rdi\nxor    %r10d,%r10d\nxor    %r8d,%r8d\npush   %rbx\nlea    -0x1(%rcx),%r12d\nmov    %edx,%ebx\nlea    0x8(%r9),%rbp\nnopl   0x0(%rax)\ntest   %r11d,%r11d\njle    64 <func0+0x64>\nmovslq %r10d,%rdx\nlea    (%r9,%rdx,8),%rax\nadd    %r12,%rdx\nlea    0x0(%rbp,%rdx,8),%rcx\nmov    %rsi,%rdx\nnopw   0x0(%rax,%rax,1)\n00 00\nmovsd  (%rax),%xmm0\nadd    $0x8,%rax\nmovsd  %xmm0,(%rdx)\nadd    %rdi,%rdx\ncmp    %rcx,%rax\njne    50 <func0+0x50>\nadd    $0x1,%r8d\nadd    $0x8,%rsi\nadd    %r11d,%r10d\ncmp    %r8d,%ebx\njne    30 <func0+0x30>\npop    %rbx\npop    %rbp\npop    %r12\nretq\nretq\n"
+    }
+  ],
+  "O3": [
+    {
+      "name": "checksum",
+      "c": "#include <stddef.h>\n#include <stdint.h>\n\nuint32_t func0(const unsigned char *data, size_t len) {\n    uint32_t a = 1, b = 0;\n    for (size_t i = 0; i < len; i++) {\n        a = (a + data[i]) % 65521;\n        b = (b + a) % 65521;\n    }\n    return (b << 16) | a;\n}",
+      "asm": "<func0>:\nendbr64\ntest   %rsi,%rsi\nje     70 <func0+0x70>\nadd    %rdi,%rsi\nxor    %eax,%eax\nmov    $0x1,%edx\nmov    $0x80078071,%r8d\nnopl   0x0(%rax)\nmovzbl (%rdi),%ecx\nadd    $0x1,%rdi\nadd    %ecx,%edx\nmov    %rdx,%rcx\nimul   %r8,%rdx\nshr    $0x2f,%rdx\nimul   $0xfff1,%edx,%r9d\nsub    %r9d,%ecx\nadd    %ecx,%eax\nmov    %ecx,%edx\nmov    %eax,%eax\nmov    %rax,%rcx\nimul   %r8,%rax\nshr    $0x2f,%rax\nimul   $0xfff1,%eax,%r9d\nmov    %ecx,%eax\nsub    %r9d,%eax\ncmp    %rsi,%rdi\njne    20 <func0+0x20>\nshl    $0x10,%eax\nor     %edx,%eax\nretq\nnopw   %cs:0x0(%rax,%rax,1)\n00 00 00\nmov    $0x1,%eax\nretq\n"
+    },
+    {
+      "name": "last_index",
+      "c": "int func0(const char *s, char ch) {\n    int last = -1;\n    for (int i = 0; s[i] != '\\0'; i++)\n        if (s[i] == ch)\n            last = i;\n    return last;\n}",
+      "asm": "<func0>:\nendbr64\nmovzbl (%rdi),%edx\ntest   %dl,%dl\nje     30 <func0+0x30>\nxor    %eax,%eax\nmov    $0xffffffff,%r8d\nnopl   0x0(%rax,%rax,1)\ncmp    %sil,%dl\ncmove  %eax,%r8d\nadd    $0x1,%rax\nmovzbl (%rdi,%rax,1),%edx\ntest   %dl,%dl\njne    18 <func0+0x18>\nmov    %r8d,%eax\nretq\nnop\nmov    $0xffffffff,%r8d\nmov    %r8d,%eax\nretq\n"
+    },
+    {
+      "name": "transpose",
+      "c": "void func0(const double *src, double *dst, int rows, int cols) {\n    for (int r = 0; r < rows; r++)\n        for (int c = 0; c < cols; c++)\n            dst[c * rows + r] = src[r * cols + c];\n}",
+      "asm": "<func0>:\nendbr64\nmov    %edx,%r9d\ntest   %edx,%edx\njle    73 <func0+0x73>\ntest   %ecx,%ecx\njle    73 <func0+0x73>\nlea    -0x1(%rcx),%eax\nmovslq %ecx,%r11\nmov    %rsi,%r8\nmov    $0xfffffffffffffff8,%r10\nshl    $0x3,%rax\nmovslq %edx,%rsi\nshl    $0x3,%r11\nlea    0x8(%rdi,%rax,1),%rcx\nshl    $0x3,%rsi\nxor    %edi,%edi\nsub    %rax,%r10\nnopl   0x0(%rax,%rax,1)\n00\nlea    (%r10,%rcx,1),%rax\nmov    %r8,%rdx\nnopw   0x0(%rax,%rax,1)\n00 00\nmovsd  (%rax),%xmm0\nadd    $0x8,%rax\nmovsd  %xmm0,(%rdx)\nadd    %rsi,%rdx\ncmp    %rcx,%rax\njne    50 <func0+0x50>\nadd    $0x1,%edi\nadd    $0x8,%r8\nadd    %r11,%rcx\ncmp    %edi,%r9d\njne    40 <func0+0x40>\nretq\n"
+    }
+  ]
+}
