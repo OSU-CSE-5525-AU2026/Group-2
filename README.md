@@ -3,20 +3,20 @@
 Asks LLMs to decompile x86-64 assembly from [HumanEval-Decompile](https://github.com/albertan017/LLM4Decompile)
 back into C, then compiles the answer and runs the benchmark's tests on it.
 
-## Setup (on OSC)
+## Setup
+
+Run everything on Cardinal, from the group folder:
 
 ```bash
-cd /fs/ess/PAS3239/group2
-git clone --recurse-submodules https://github.com/OSU-CSE-5525-AU2026/Group-2.git && cd Group-2
-module load python/3.12
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+ssh <you>@cardinal.osc.edu
+cd /fs/ess/PAS3239/group2/Group-2
+module load python/3.12 && source .venv/bin/activate
 ```
 
 ## Run
 
-1. Start a model server with
-   (`/fs/ess/PAS3239/group2/bv_llm_host`). The name must match an entry in `models.yaml`:
+1. Start a model server. It runs on the debug queue and resubmits itself every hour until stopped.
+   The name must match an entry in `models.yaml`:
 
    ```bash
    ../bv_llm_host/scripts/serve.sh qwen3-8b
@@ -30,7 +30,10 @@ pip install -r requirements.txt
 
    For long runs, submit it as a job instead: `sbatch slurm/eval.sbatch experiments/baseline.yaml`.
 
-3. Stop the server: `../bv_llm_host/scripts/stop.sh qwen3-8b`.
+3. Stop the server: `../bv_llm_host/scripts/stop.sh qwen3-8b`. Check what is running with
+   `../bv_llm_host/scripts/status.sh`.
+
+All four prompts at one optimization level take about an hour for qwen3-8b.
 
 Results go to `results/<experiment>/`: `generations.jsonl` (every model reply), `evals.jsonl`
 (compile and test result per reply), `summary.csv` and `comparisons.csv`.
