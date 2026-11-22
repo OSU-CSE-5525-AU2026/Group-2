@@ -28,8 +28,7 @@ def main() -> None:
         build()
         return
     exp = load_experiment(
-        args.experiment, opt=args.opt, tasks=args.tasks, models=args.models, prompts=args.prompts, samples=args.samples
-    )
+        args.experiment, opt=args.opt, tasks=args.tasks, models=args.models, prompts=args.prompts, samples=args.samples)
     if args.command in ("run", "generate"):
         asyncio.run(generate(exp, wait=args.wait))
     if args.command in ("run", "evaluate"):
