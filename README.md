@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 ## Run
 
-1. Start a model server with [bv_llm_host](https://github.com/BuckeyeVertical/bv_llm_host)
+1. Start a model server with
    (`/fs/ess/PAS3239/group2/bv_llm_host`). The name must match an entry in `models.yaml`:
 
    ```bash
