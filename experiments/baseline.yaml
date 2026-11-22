@@ -1,0 +1,5 @@
+models: [qwen3-8b]
+prompts: [zero_shot, structured, self_review, few_shot]
+opt: [O0]
+tasks: all
+samples: 1

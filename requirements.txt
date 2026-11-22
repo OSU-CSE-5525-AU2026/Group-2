@@ -1,1 +1,2 @@
-groq==1.7.0
+openai>=1.60,<3
+pyyaml>=6

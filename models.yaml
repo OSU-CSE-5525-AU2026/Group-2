@@ -1,0 +1,43 @@
+local_endpoints: /fs/ess/PAS3239/group2/llm_state/endpoints
+
+models:
+  gpt-oss-120b-groq:
+    base_url: https://api.groq.com/openai/v1
+    api_key_env: GROQ_API_KEY
+    model: openai/gpt-oss-120b
+    concurrency: 4
+    params:
+      temperature: 0
+      max_completion_tokens: 8192
+      reasoning_effort: medium
+
+  qwen3-0.6b:
+    base_url: local:qwen3-0.6b
+    params:
+      temperature: 0
+      max_tokens: 4096
+
+  qwen3-8b:
+    base_url: local:qwen3-8b
+    params:
+      temperature: 0
+      max_tokens: 16384
+
+  qwen3-coder-30b:
+    base_url: local:qwen3-coder-30b
+    params:
+      temperature: 0
+      max_tokens: 8192
+
+  gpt-oss-20b:
+    base_url: local:gpt-oss-20b
+    params:
+      temperature: 0
+      max_tokens: 16384
+      reasoning_effort: medium
+
+  qwen3.6-35b-fp8:
+    base_url: local:qwen3.6-35b-fp8
+    params:
+      temperature: 0
+      max_tokens: 16384
