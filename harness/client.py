@@ -54,7 +54,7 @@ class ChatClient:
 
     async def open(self, base_url: str) -> None:
         self.base_url = base_url
-        self.client = AsyncOpenAI(base_url=base_url, api_key=self.api_key, timeout=900, max_retries=5)
+        self.client = AsyncOpenAI(base_url=base_url, api_key=self.api_key, timeout=3600, max_retries=5)
 
     async def reconnect(self, failed_url: str) -> None:
         async with self.lock:
